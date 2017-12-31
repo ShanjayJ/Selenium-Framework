@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Vmetry Suite">
+	<listeners>
+		<listener class-name="com.vmetry.reporter.CustomReporter" />
+	</listeners>
+	<test verbose="2" name="Booking">
+		<classes>
+			<class name="com.vmetry.testcases.Booking" />
+		</classes>
+	</test> <!-- Default test -->
+</suite> <!-- Default suite -->

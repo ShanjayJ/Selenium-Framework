@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Built-By: Parama
+Class-Path: outjar/selenium-java-2.53.1.jar outjar/selenium-chrome-dri
+ ver-2.53.1.jar outjar/selenium-remote-driver-2.53.1.jar outjar/cglib-
+ nodep-2.1_3.jar outjar/gson-2.3.1.jar outjar/selenium-api-2.53.1.jar 
+ outjar/selenium-edge-driver-2.53.1.jar outjar/commons-io-2.4.jar outj
+ ar/commons-exec-1.3.jar outjar/htmlunit-driver-2.21.jar outjar/htmlun
+ it-2.21.jar outjar/xalan-2.7.2.jar outjar/serializer-2.7.2.jar outjar
+ /commons-lang3-3.4.jar outjar/htmlunit-core-js-2.17.jar outjar/neko-h
+ tmlunit-2.21.jar outjar/xercesImpl-2.11.0.jar outjar/xml-apis-1.4.01.
+ jar outjar/cssparser-0.9.18.jar outjar/sac-1.3.jar outjar/websocket-c
+ lient-9.2.15.v20160210.jar outjar/jetty-util-9.2.15.v20160210.jar out
+ jar/jetty-io-9.2.15.v20160210.jar outjar/websocket-common-9.2.15.v201
+ 60210.jar outjar/websocket-api-9.2.15.v20160210.jar outjar/commons-co
+ llections-3.2.2.jar outjar/selenium-firefox-driver-2.53.1.jar outjar/
+ selenium-ie-driver-2.53.1.jar outjar/jna-4.1.0.jar outjar/jna-platfor
+ m-4.1.0.jar outjar/selenium-safari-driver-2.53.1.jar outjar/netty-3.5
+ .7.Final.jar outjar/selenium-support-2.53.1.jar outjar/selenium-leg-r
+ c-2.53.1.jar outjar/guava-20.0.jar outjar/poi-3.15.jar outjar/commons
+ -codec-1.10.jar outjar/commons-collections4-4.1.jar outjar/poi-ooxml-
+ 3.15.jar outjar/poi-ooxml-schemas-3.15.jar outjar/xmlbeans-2.6.0.jar 
+ outjar/stax-api-1.0.1.jar outjar/curvesapi-1.04.jar outjar/testng-6.1
+ 0.jar outjar/jcommander-1.48.jar outjar/extentreports-2.031.jar outja
+ r/log4j-1.2.17.jar outjar/httpclient-4.5.2.jar outjar/commons-logging
+ -1.2.jar outjar/httpcore-4.4.5.jar outjar/httpmime-4.5.2.jar outjar/j
+ avafaker-0.2.jar outjar/commons-lang-2.6.jar outjar/jyaml-1.3.jar out
+ jar/slf4j-simple-1.6.1.jar outjar/slf4j-api-1.6.1.jar
+Build-Jdk: 1.8.0_77
+Created-By: Maven Integration for Eclipse
+Main-Class: theMainClass
+
