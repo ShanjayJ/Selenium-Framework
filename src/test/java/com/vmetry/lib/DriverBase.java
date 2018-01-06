@@ -55,41 +55,68 @@ public class DriverBase {
 		DesiredCapabilities capability;
 		ChromeOptions chromeOpt;
 		if (browser.equalsIgnoreCase("FireFox")) {
-			capability = DesiredCapabilities.firefox();
-			FirefoxProfile firefoxProfile = new FirefoxProfile();
-			firefoxProfile.setAcceptUntrustedCertificates(true);
-			capability.setCapability(FirefoxDriver.PROFILE, firefoxProfile);
-			driver = new FirefoxDriver(capability);
+			if (System.getProperty("os.name").trim().equalsIgnoreCase("Mac OS X")) {
+				driver = new FirefoxDriver();
+				System.setProperty("webdriver.gecko.driver",
+						System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+								+ File.separator + "resources" + File.separator + "Drivers" + File.separator
+								+ "geckodriver os x");
+			} else if (System.getProperty("os.name").trim().toUpperCase().contains("WINDOWS")) {
+				if (System.getProperty("os.arch").trim().toUpperCase().contains("64")) {
+					System.setProperty("webdriver.gecko.driver",
+							System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+									+ File.separator + "resources" + File.separator + "Drivers" + File.separator
+									+ "geckodriver win x64.exe");
+				} else {
+					System.setProperty("webdriver.gecko.driver",
+							System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+									+ File.separator + "resources" + File.separator + "Drivers" + File.separator
+									+ "geckodriver win x86");
+				}
+				driver = new FirefoxDriver();
+			}
 		} else if (browser.equalsIgnoreCase("Chrome") || browser.equalsIgnoreCase("Google Chrome")) {
 			chromeOpt = new ChromeOptions();
 			capability = DesiredCapabilities.chrome();
 			chromeOpt.addArguments("--always-authorize-plugins=true");
 			chromeOpt.addArguments("--disable-extensions");
 			capability.setCapability(ChromeOptions.CAPABILITY, chromeOpt);
-			capability.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator
-							+ "resources" + File.separator + "Drivers" + File.separator + "chromedriver.exe");
-			driver = new ChromeDriver(capability);
+			if (System.getProperty("os.name").trim().equalsIgnoreCase("Mac OS X")) {
+				driver = new ChromeDriver(capability);
+				System.setProperty("webdriver.chrome.driver",
+						System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+								+ File.separator + "resources" + File.separator + "Drivers" + File.separator
+								+ "chromedriver");
+			} else if (System.getProperty("os.name").trim().toUpperCase().contains("WINDOWS")) {
+				System.setProperty("webdriver.chrome.driver",
+						System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+								+ File.separator + "resources" + File.separator + "Drivers" + File.separator
+								+ "chromedriver.exe");
+				driver = new ChromeDriver(capability);
+			}
 		} else if (browser.equalsIgnoreCase("IE") || browser.equalsIgnoreCase("Internet Explorer")) {
-			capability = DesiredCapabilities.internetExplorer();
-			capability.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-			capability.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-			System.setProperty("webdriver.ie.driver",
-					System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator
-							+ "resources" + File.separator + "Drivers" + File.separator + "IEDriverServer.exe");
-			driver = new InternetExplorerDriver(capability);
+			if (System.getProperty("os.arch").trim().toUpperCase().contains("64")) {
+				System.setProperty("webdriver.ie.driver",
+						System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+								+ File.separator + "resources" + File.separator + "Drivers" + File.separator
+								+ "IEDriverServer x64.exe");
+			} else {
+				System.setProperty("webdriver.ie.driver",
+						System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+								+ File.separator + "resources" + File.separator + "Drivers" + File.separator
+								+ "IEDriverServer x32.exe");
+			}
+			driver = new InternetExplorerDriver();
 		} else if (browser.equalsIgnoreCase("Edge") || browser.equalsIgnoreCase("Microsoft Edge")
 				|| browser.equalsIgnoreCase("Spartan")) {
-			capability = DesiredCapabilities.edge();
-			capability.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 			System.setProperty("webdriver.edge.driver",
 					System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator
 							+ "resources" + File.separator + "Drivers" + File.separator + "MicrosoftWebDriver.exe");
-			driver = new EdgeDriver(capability);
+			driver = new EdgeDriver();
 		}
 		wait = new WebDriverWait(driver, TIME_OUT);
 	}
+
 
 	public static void get(String url) {
 		driver.get(url);
